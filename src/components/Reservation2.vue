@@ -3,69 +3,72 @@
     <ul>
         <li><a href="#">Online Rezervasyon</a></li>
         <li><a href="#">
-                <div v-for="(date,index) in dates1">
-                    <date-picker value-type="DD/MM/YYYY" format="DD-MM-YYYY" class="range-picker" :value="$store.state.date1" type="date" placeholder="Giriş Tarihi" range></date-picker>
+
+                <date-picker value-type="DD/MM/YYYY" format="DD-MM-YYYY" class="range-picker" v-model="$store.state.date1" type="date" placeholder="Giriş Tarihi" range></date-picker>
             </a></li>
 
         <li><a href="#">
                 <date-picker value-type="DD/MM/YYYY" format="DD-MM-YYYY" class="range-picker" v-model="$store.state.date1" type="date" placeholder="Çıkış Tarihi" range></date-picker>
             </a></li>
-</div>
-<li><a href="#">Misafirler</a>
-    <ul class="dropdown-1">
-        <li><a href="#">
-                <tr>
-                    <td><span> Yetişkinler: </span></td>
-                    <td>
-                        <div class="" style="width: 110px;">
-                            <button @click="subtract2()">-</button>
-                            <input :value="$store.state.adultCount" type="text" style="width: 50px;">
-                            <button @click="increment2()">+</button>
 
-                        </div>
-                    </td>
-                </tr>
-            </a></li>
-        <li><a href="#">
-                <tr>
-                    <td><span> Çocuklar:</span> </td>
-                    <td>
-                        <div class="" style="width: 110px;">
-                            <button tabindex="0" type="button" role="button" @click="subtract()" class="">-</button>
-                            <input :value="$store.state.childrenCount" style="width: 50px;">
-                            <button tabindex="0" type="button" role="button" class="" @click="increment()">+
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </a></li>
-        <div>
-            <ul class="dropdown-1">
+        <li><a href="#">Misafirler</a>
+        
+        <ul class="dropdown-1">
+            <li><a href="#">
+                
+                    <tr>
 
-                <li v-for="(count,index) in $store.state.childrenCount" :key="index"><a>
-                        <tr>
-                            <div>
-                                <td><span> {{index+1}}. Çocuk: </span></td>
-                                <td>
-                                    <div class="" style="width: 110px;">
-                                        <button @click="subtractAge(index)">-</button>
-                                        <input :value="$store.state.childrenAge" type="text" style="width: 50px;">
-                                        <button @click="addAge(index)">+</button>
-
-                                    </div>
-                                </td>
+                        <td><span> Yetişkinler: </span></td>
+                        <td>
+                            <div class="" style="width: 110px;">
+                                <button @click="subtract2()">-</button>
+                                <input :value="$store.state.adultCount" type="text" style="width: 50px;">
+                                <button @click="increment2()">+</button>
 
                             </div>
-                        </tr>
-                    </a></li>
-            </ul>
-        </div>
+                        </td>
+                    </tr>
+                </a></li>
+            <li><a href="#">
+                    <tr>
+                        <td><span> Çocuklar:</span> </td>
+                        <td>
+                            <div class="" style="width: 110px;">
+                                <button tabindex="0" type="button" role="button" @click="subtract()" class="">-</button>
+                                <input :value="$store.state.childrenCount" style="width: 50px;">
+                                <button tabindex="0" type="button" role="button" class="" @click="increment()">+
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </a></li>
+            <div>
+                <ul class="dropdown-1">
 
+                    <li v-for="(count,index) in $store.state.childrenCount" :key="index"><a>
+                            <tr>
+                                <div>
+                                    <td><span> {{index+1}}. Çocuk: </span></td>
+                                    <td>
+                                        <div class="" style="width: 110px;">
+                                            <button @click="subtractAge(index)">-</button>
+                                            <input :value="$store.state.childrenAge" type="text" style="width: 50px;">
+                                            <button @click="addAge(index)">+</button>
+
+                                        </div>
+                                    </td>
+
+                                </div>
+                            </tr>
+                        </a></li>
+                </ul>
+            </div>
+
+        </ul>
+        </li>
+        <li><a href="#">Fiyat Listele</a></li>
     </ul>
-</li>
-<li><a href="#">Fiyat Listele</a></li>
-</ul>
-{{$store.state.date2}}
+
 </div>
 </template>
 
@@ -77,13 +80,13 @@ import {
 } from "vue-property-decorator";
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
-import Moment from "moment";
+
 @Component({
     components: {
-        DatePicker,
+        DatePicker
     },
 })
-export default class Reservation extends Vue {
+export default class Reservation2 extends Vue {
 
     increment() {
         this.$store.commit('increment')
@@ -97,10 +100,10 @@ export default class Reservation extends Vue {
     subtract2() {
         this.$store.commit('subtract2')
     }
-    subtractAge(index) {
+    subtractAge() {
         this.$store.commit('subtractAge')
     }
-    addAge(index) {
+    addAge() {
         this.$store.commit('addAge');
     }
     addDate() {
@@ -190,8 +193,6 @@ export default class Reservation extends Vue {
 #app>div.home>div>ul>li:nth-child(4)>ul>li:nth-child(2)>a>tr>td:nth-child(1)>span {
     letter-spacing: 2.7px !important;
 }
-
-#app>div.home>div>ul>li:nth-child(4)>ul>li:nth-child(2)>a>tr>td:nth-child(2)>div>button:nth-child(3) {}
 
 #app>div.home>div>ul>li:nth-child(4)>ul>div>ul>li>a>tr>div>td:nth-child(2)>div>input[type=text] {
     text-align: center;
