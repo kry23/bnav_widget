@@ -4,12 +4,10 @@
         <li><a href="#">Online Rezervasyon</a></li>
         <li><a href="#">
 
-                <date-picker value-type="DD/MM/YYYY" format="DD-MM-YYYY" class="range-picker" v-model="$store.state.date1" type="date" placeholder="Giriş Tarihi" range></date-picker>
+                <date-picker value-type="DD/MM/YYYY" format="DD-MM-YYYY" class="range-picker" v-model="$store.state.date1" type="date" placeholder="Giriş Tarihi-Çıkış Tarihi" range></date-picker>
             </a></li>
 
-        <li><a href="#">
-                <date-picker value-type="DD/MM/YYYY" format="DD-MM-YYYY" class="range-picker" v-model="$store.state.date1" type="date" placeholder="Çıkış Tarihi" range></date-picker>
-            </a></li>
+       
 
         <li><a href="#">Misafirler</a>
         
