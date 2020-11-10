@@ -12,56 +12,59 @@
             </a></li>
 
         <li><a href="#">Misafirler</a>
-            <ul class="dropdown-1">
-                <li><a href="#">
-                        <tr>
-                            <td><span> Yetişkinler: </span></td>
-                            <td>
-                                <div class="" style="width: 110px;">
-                                    <button @click="subtract2()">-</button>
-                                    <input :value="$store.state.adultCount" type="text" style="width: 50px;">
-                                    <button @click="increment2()">+</button>
+        
+        <ul class="dropdown-1">
+            <li><a href="#">
+                
+                    <tr>
+
+                        <td><span> Yetişkinler: </span></td>
+                        <td>
+                            <div class="" style="width: 110px;">
+                                <button @click="subtract2()">-</button>
+                                <input :value="$store.state.adultCount" type="text" style="width: 50px;">
+                                <button @click="increment2()">+</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                </a></li>
+            <li><a href="#">
+                    <tr>
+                        <td><span> Çocuklar:</span> </td>
+                        <td>
+                            <div class="" style="width: 110px;">
+                                <button tabindex="0" type="button" role="button" @click="subtract()" class="">-</button>
+                                <input :value="$store.state.childrenCount" style="width: 50px;">
+                                <button tabindex="0" type="button" role="button" class="" @click="increment()">+
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </a></li>
+            <div>
+                <ul class="dropdown-1">
+
+                    <li v-for="(count,index) in $store.state.childrenCount" :key="index"><a>
+                            <tr>
+                                <div>
+                                    <td><span> {{index+1}}. Çocuk: </span></td>
+                                    <td>
+                                        <div class="" style="width: 110px;">
+                                            <button @click="subtractAge(index)">-</button>
+                                            <input :value="$store.state.childrenAge" type="text" style="width: 50px;">
+                                            <button @click="addAge(index)">+</button>
+
+                                        </div>
+                                    </td>
 
                                 </div>
-                            </td>
-                        </tr>
-                    </a></li>
-                <li><a href="#">
-                        <tr>
-                            <td><span> Çocuklar:</span> </td>
-                            <td>
-                                <div class="" style="width: 110px;">
-                                    <button tabindex="0" type="button" role="button" @click="subtract()" class="">-</button>
-                                    <input :value="$store.state.childrenCount" style="width: 50px;">
-                                    <button tabindex="0" type="button" role="button" class="" @click="increment()">+
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </a></li>
-                <div>
-                    <ul class="dropdown-1">
+                            </tr>
+                        </a></li>
+                </ul>
+            </div>
 
-                        <li v-for="(count,index) in $store.state.childrenCount" :key="index"><a>
-                                <tr>
-                                    <div>
-                                        <td><span> {{index+1}}. Çocuk: </span></td>
-                                        <td>
-                                            <div class="" style="width: 110px;">
-                                                <button @click="subtractAge(index)">-</button>
-                                                <input :value="$store.state.childrenAge" type="text" style="width: 50px;">
-                                                <button @click="addAge(index)">+</button>
-
-                                            </div>
-                                        </td>
-
-                                    </div>
-                                </tr>
-                            </a></li>
-                    </ul>
-                </div>
-
-            </ul>
+        </ul>
         </li>
         <li><a href="#">Fiyat Listele</a></li>
     </ul>

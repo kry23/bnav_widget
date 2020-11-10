@@ -3,4 +3,4 @@ declare module '*.vue' {
   export default Vue
 }
 
-declare module 'vue2-datepicker';
+// declare module 'vue2-datepicker';
