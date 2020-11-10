@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Reservation2 from './components/Reservation2.vue'
+
 
 Vue.use(Vuex)
 
@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     childrenCount: 0,
     adultCount: 1,
-    childrenAge: [],
+    childrenAge:0,
     date1:'',
     date2: {}
   },
@@ -28,14 +28,14 @@ export default new Vuex.Store({
     },
     addAge(state) {
       state.childrenAge++;
-    },
+     },
     
-    subtractAge(state) {
-      state.childrenAge = state.childrenAge - 1;
-    },
-    dateDivide(state) {
-      state.date2 = state.date1.split('~')
-    }
+     subtractAge(state) {
+       state.childrenAge = state.childrenAge - 1;
+     }
+    // dateDivide(state) {
+    //   state.date2 = state.date1.split('~')
+    // }
   },
   actions: {
   },
